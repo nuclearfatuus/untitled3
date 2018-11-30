@@ -1,52 +1,41 @@
 #include <iostream>
 
-class task {
-    int a;
-    char c;
-    int *x;
-    int y;
-
+class material {
 public:
-    int get_a() {
-        return a;
-    };
+    std::string name;
+    float density;
 
-    char get_c() {
-        return c;
-    };
+    std::string getName() const {
+        return name;
+    }
 
-    int set_a(int a){
-        task::a = a;
-    };
-
-    char set_c(char c){
-        task::c = c;
-    };
-
-    int* get_aa(){
-        x = &a;
-        return &a;
-    };
-
-    int set_aa(int& a){
-        task::y = a;
-    };
-
-
+    float getDensity() const {
+        return density;
+    }
 };
 
-int main() {
+    class material2: public material {
+    public:
+        std::string state;
 
-    task a;
-    a.get_a();
-    a.set_a(25);
-    a.get_aa();
-    int x = 2;
-    a.set_aa(x);
+        std::string getState() const {
+            return state;
+        }
 
-    task c;
-    c.get_c();
-    c.set_c(1);
+        material2(std::string _name, float _density, std::string _state){
+            name = _name;
+            density = _density;
+            state = _state;
+            std::cout<<name<<'|'<<density<<'|'<<state<<std::endl;
+        }
+
+
+    };
+
+    int main(){
+        material2("iron", 7.82, "solid");
+
+
 
 return 0;
 }
